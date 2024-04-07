@@ -9,6 +9,7 @@ const cfgMap = {
 	'禁言嘲讽': 'sz.jycf',
 	'防艾特全体': 'sz.fatqt',
 	'截图预览': 'sz.jtyl',
+	'群管': 'sz.qg',
 };
 
 const CfgReg = `^#?跑路(插件)?设置\\s*(${lodash.keys(cfgMap).join('|')})?\\s*(.*)$`;
