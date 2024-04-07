@@ -1,0 +1,24 @@
+{
+  "name": "Circle-money-run-plugin",
+  "version": "1.0.3",
+  "description": "yunzai-Bo⭕💰🏃🛣插件",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.com/theqingyao/Circle-money-run-plugin.git"
+  },
+  "keywords": [
+    "Yunzai-Bot",
+    "Miao-Yunzai",
+    "TRSS-Yunzai",
+    "Circle-money-run-plugin"
+  ],
+  "author": "瑜笙",
+  "license": "MIT",
+  "dependencies": {
+  }
+}
