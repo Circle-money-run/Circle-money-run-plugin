@@ -1,4 +1,5 @@
 import { Config} from '../components/index.js'
+import dm from '../lib/dm.js'
 const Numreg = "[零一壹二两三四五六七八九十百千万亿\\d]+"
 
 export class example extends plugin {
@@ -54,7 +55,7 @@ export class example extends plugin {
     // 判断是否有这个人
     if (!Member.info) return e.reply("少女为你痛哭 \n这个人好像没有在这个国度")
     let reg = new RegExp(`^#(跑路)?禁言\\s?((\\d+)\\s)?(${Numreg})?(分|分钟|min|时|小时|hour|天|日|day)?$`)
-    const time = translateChinaNum(regRet[3])
+    const time = dm.translateChinaNum(regRet[3])
     let date = e.msg.match(reg)[4]
     if (date == '分' || date == '分钟' || date == 'min'){
     let bantime = time * 60
