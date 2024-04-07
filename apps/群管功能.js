@@ -40,7 +40,7 @@ export class example extends plugin {
   }
     async MuteMember(e) {
     if (!/跑路/.test(e.msg) && !Config.getConfig('set','sz')['qg']){return false}
-    if (!(e.member.is_admin || isMaster)){
+    if (!(e.member.is_admin || e.isMaster)){
      this.reply('少女为你痛哭，你好像还没有权限')
      return false
      }
@@ -55,7 +55,7 @@ export class example extends plugin {
     // 判断是否有这个人
     if (!Member.info) return e.reply("少女为你痛哭 \n这个人好像没有在这个国度")
     let reg = new RegExp(`^#(跑路)?禁言\\s?((\\d+)\\s)?(${Numreg})?(分|分钟|min|时|小时|hour|天|日|day)?$`)
-    const time = dm.translateChinaNum(regRet[3])
+    const time = dm.translateChinaNum(reg[3])
     let date = e.msg.match(reg)[4]
     if (date == '分' || date == '分钟' || date == 'min'){
     let bantime = time * 60
