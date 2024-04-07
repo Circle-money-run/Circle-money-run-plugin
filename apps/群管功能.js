@@ -43,7 +43,7 @@ export class example extends plugin {
      this.reply('少女为你痛哭，你好像还没有权限')
      return false
      }
-   if (!group.is_admin){
+   if (!e.group.is_admin){
    this.reply('少女自毁了~')
    return false
    }
