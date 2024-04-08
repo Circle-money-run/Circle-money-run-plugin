@@ -76,7 +76,7 @@ export class example extends plugin {
     await e.group.muteMember(qq, bantime)
     this.reply('主人，少女已经将这个坏人禁言了')
     }else
-    if (date == '天' || date == '日' || date == 'day' date == 'd'){
+    if (date == '天' || date == '日' || date == 'day' || date == 'd'){
     let bantime = time * 60 * 60 * 24
     await e.group.muteMember(qq, bantime)
     this.reply('主人，少女已经将这个坏人禁言了')
