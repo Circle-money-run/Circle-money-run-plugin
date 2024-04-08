@@ -53,22 +53,23 @@ export class example extends plugin {
     if (!/跑路/.test(e.msg) && !Config.getConfig('set','sz')['qg']){return false}
     if (!(e.member.is_admin || e.isMaster)){
      this.reply('少女为你痛哭，你好像还没有权限')
-     return false
+     return true
      }
    if (!e.group.is_admin){
    this.reply('少女自毁了~')
-   return false
+   return true
    }
+   if (/假/.test(e.msg)){
+     await e.group._setting({17:1})
+     this.reply("主人，已经为你开启了全体禁言(假)了哦")
+     return true
+    }
    let type;
     if (/禁言/.test(e.msg)){
      type = true
     }else
     if (/解禁/.test(e.msg)){
      type = false
-    }
-    if (/假/.test(e.msg)){
-     await e.group._setting({17:1})
-     this.reply('主人，已经为你开启了全体禁言(假)了哦')
     }
     let res = await e.group.muteAll(type)
     if (!res) return e.reply("少女为你痛哭", true)
