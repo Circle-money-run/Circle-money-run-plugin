@@ -1,5 +1,5 @@
 import { Config, translateChinaNum } from '../components/index.js'
-const Numreg = "[零一壹二两三四五六七八九十百千万亿\\d]+"
+const Numreg = '[零一壹二两三四五六七八九十百千万亿\\d]+'
 
 export class example extends plugin {
   constructor () {
@@ -62,24 +62,27 @@ export class example extends plugin {
    }
     
     let qq = e.message.find(item => item.type == "at")?.qq
-    if (!qq || !(/\d{5,}/.test(qq))) return e.reply("少女为你痛哭 \n您好像输入了错误的QQ号")
-    let reg = new RegExp(`^#(跑路)?禁言\\s?((\\d+)\\s)?(${Numreg})?(分|分钟|min|m|时|小时|hour|h|天|日|day|d)?$`)
-    const time = translateChinaNum(e.msg.match(reg)[3])
-    let date = e.msg.match(reg)[4]
-    if (date == '分' || date == '分钟' || date == 'min' || date == 'm'){
-    let bantime = time * 60
-    await e.group.muteMember(qq, bantime)
-    this.reply('主人，少女已经将这个坏人禁言了')
-    }else
-    if (date == '时' || date == '小时' || date == 'hour' || date == 'h'){
-    let bantime = time * 60 * 60
-    await e.group.muteMember(qq, bantime)
-    this.reply('主人，少女已经将这个坏人禁言了')
-    }else
-    if (date == '天' || date == '日' || date == 'day' || date == 'd'){
-    let bantime = time * 60 * 60 * 24
-    await e.group.muteMember(qq, bantime)
-    this.reply('主人，少女已经将这个坏人禁言了')
-  }
-  }
+    if (!qq || !(/\d{5,}/.test(qq))) return e.reply("少女为你痛哭 \n主人，你好像输入了错误的QQ号")
+    let reg = new RegExp(`^#(跑路)?禁言\\s?((\\d+)\\s)?(${Numreg})?(分|分钟|时|小时|天|日)?$`)
+        let time = translateChinaNum(e.msg.match(reg)[3])
+        let date = e.msg.match(reg)[4]
+        if (date == '分' || date == '分钟') {
+            let bantime = time * 60
+            e.group.muteMember(qq, bantime)
+            this.reply('主人，少女已经将坏人给禁言了')
+        }
+        else if (date == '时' || date == '小时') {
+            let bantime = time * 60 * 60
+            e.group.muteMember(qq, bantime)
+            this.reply('主人，少女已经将坏人给禁言了')
+        }
+        else if (date == '天' || date == '日') {
+            let bantime = time * 60 * 60 * 24
+            e.group.muteMember(qq, bantime)
+        }
+        else 
+        {
+        this.reply('少女为你痛哭 \n主人，你好像输入了错误的时间')
+        }
+     }
   }
