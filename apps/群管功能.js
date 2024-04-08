@@ -14,7 +14,7 @@ export class example extends plugin {
           permission: 'master'
         },
         {
-          reg: `^#(跑路)?(假)?全(体|员)(禁言|解禁)$`,
+          reg: `^#(跑路)?全(体|员)(禁言|解禁)$`,
           fnc: "MuteAll"
         },
       ]
@@ -59,11 +59,6 @@ export class example extends plugin {
    this.reply('少女自毁了~')
    return true
    }
-   if (/假/.test(e.msg)){
-     await e.group._setting({17:1})
-     this.reply("主人，已经为你开启了全体禁言(假)了哦")
-     return true
-    }
    let type;
     if (/禁言/.test(e.msg)){
      type = true
@@ -73,6 +68,6 @@ export class example extends plugin {
     }
     let res = await e.group.muteAll(type)
     if (!res) return e.reply("少女为你痛哭", true)
-    e.reply(`主人，已经为你${type ? "开启" : "关闭"}全体禁言(真)了哦`)
+    e.reply(`主人，已经为你${type ? "开启" : "关闭"}全体禁言了哦`)
      }
   }
