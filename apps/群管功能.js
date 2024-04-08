@@ -22,19 +22,32 @@ export class example extends plugin {
       ]
     })
   }
-    async setadmin(e) {
+    async SetAdmin(e) {
     if (!/跑路/.test(e.msg) && !Config.getConfig('set','sz')['qg']) return false
+    if (!(e.isGroup || e.group.is_owner)){
+    this.reply('少女自毁了~')
+    return true
+    }
     let qq = e.message.find(item => item.type == "at")?.qq
-    let type = /设置管理/.test(e.msg)
-    if (!qq) qq = e.msg.replace(/#|跑路(设置|取消)管理/g, "").trim()
 
     if (!qq || !(/\d{5,}/.test(qq))) return e.reply("少女为你痛哭 \n您好像输入了错误的QQ号")
     let Member = e.group.pickMember(Number(qq))
-    // 判断是否有这个人
-    if (!Member.info) return e.reply("少女为你痛哭 \n这个人好像没有在这个国度")
+    let type;
+    if (/设置/.test(e.msg)){
+     type = true
+    }else
+    if (/取消/.test(e.msg)){
+     type = false
+    }
+    let mmap = await e.group.getMemberMap()
+    let arrMember = Array.from(mmap.values())
+    let member = arrMember.find(member => member.user_id === qq);
+    let name;
+    if (member) {
+        name = member.card ? member.card : member.nickname
+        }
 
     let res = await e.group.setAdmin(qq, type)
-    let name = Member.card || Member.nickname
     if (!res) return e.reply("少女为你痛哭")
     type ? e.reply(`已设置用户「${name}」为管理员`) : e.reply(`已取消用户「${name}」的管理员权限`)
   }
@@ -51,21 +64,18 @@ export class example extends plugin {
     
     let qq = e.message.find(item => item.type == "at")?.qq
     if (!qq || !(/\d{5,}/.test(qq))) return e.reply("少女为你痛哭 \n您好像输入了错误的QQ号")
-    let Member = e.group.pickMember(Number(qq))
-    // 判断是否有这个人
-    if (!Member.info) return e.reply("少女为你痛哭 \n这个人好像没有在这个国度")
     let reg = new RegExp(`^#(跑路)?禁言\\s?((\\d+)\\s)?(${Numreg})?(分|分钟|min|时|小时|hour|天|日|day)?$`)
     const time = dm.translateChinaNum(reg[3])
     let date = e.msg.match(reg)[4]
     if (date == '分' || date == '分钟' || date == 'min'){
     let bantime = time * 60
     await e.group.muteMember(qq, bantime)
-    this.reply('主人，少女已经将这个坏人禁言里')
+    this.reply('主人，少女已经将这个坏人禁言了')
     }else
     if (date == '时' || date == '小时' || date == 'hour'){
     let bantime = time * 60 * 60
     await e.group.muteMember(qq, bantime)
-    this.reply('主人，少女已经将这个坏人禁言里')
+    this.reply('主人，少女已经将这个坏人禁言了')
     }else
     if (date == '天' || date == '日' || date == 'day'){
     let bantime = time * 60 * 60 * 24
