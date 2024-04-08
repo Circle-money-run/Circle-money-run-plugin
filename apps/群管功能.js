@@ -1,5 +1,4 @@
-import { Config} from '../components/index.js'
-import dm from '../lib/dm.js'
+import { Config, translateChinaNum } from '../components/index.js'
 const Numreg = "[零一壹二两三四五六七八九十百千万亿\\d]+"
 
 export class example extends plugin {
@@ -16,7 +15,7 @@ export class example extends plugin {
           permission: 'master'
         },
         {
-          reg: `^#(跑路)?禁言\\s?((\\d+)\\s)?(${Numreg})?(分|分钟|min|时|小时|hour|天|日|day)?$`,
+          reg: `^#(跑路)?禁言\\s?((\\d+)\\s)?(${Numreg})?(分|分钟|min|m|时|小时|hour|h|天|日|day|d)?$`,
           fnc: "MuteMember"
         },
       ]
@@ -64,23 +63,23 @@ export class example extends plugin {
     
     let qq = e.message.find(item => item.type == "at")?.qq
     if (!qq || !(/\d{5,}/.test(qq))) return e.reply("少女为你痛哭 \n您好像输入了错误的QQ号")
-    let reg = new RegExp(`^#(跑路)?禁言\\s?((\\d+)\\s)?(${Numreg})?(分|分钟|min|时|小时|hour|天|日|day)?$`)
-    const time = dm.translateChinaNum(reg[3])
+    let reg = new RegExp(`^#(跑路)?禁言\\s?((\\d+)\\s)?(${Numreg})?(分|分钟|min|m|时|小时|hour|h|天|日|day|d)?$`)
+    const time = translateChinaNum(e.msg.match(reg)[3])
     let date = e.msg.match(reg)[4]
-    if (date == '分' || date == '分钟' || date == 'min'){
+    if (date == '分' || date == '分钟' || date == 'min' || date == 'm'){
     let bantime = time * 60
     await e.group.muteMember(qq, bantime)
     this.reply('主人，少女已经将这个坏人禁言了')
     }else
-    if (date == '时' || date == '小时' || date == 'hour'){
+    if (date == '时' || date == '小时' || date == 'hour' || date == 'h'){
     let bantime = time * 60 * 60
     await e.group.muteMember(qq, bantime)
     this.reply('主人，少女已经将这个坏人禁言了')
     }else
-    if (date == '天' || date == '日' || date == 'day'){
+    if (date == '天' || date == '日' || date == 'day' date == 'd'){
     let bantime = time * 60 * 60 * 24
     await e.group.muteMember(qq, bantime)
-    this.reply('主人，少女已经将这个坏人禁言里')
+    this.reply('主人，少女已经将这个坏人禁言了')
   }
   }
   }

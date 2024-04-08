@@ -5,5 +5,6 @@ import Version from './Version.js'
 import Data from './Data.js'
 import Common from './Common.js'
 import Config from './Config.js'
+import translateChinaNum from "./translateChinaNum.js"
 
-export {Common, Config, Data, Version, Path, Plugin_Name, Plugin_Path}
+export {Common, Config, Data, Version, Path, Plugin_Name, Plugin_Path, translateChinaNum}
