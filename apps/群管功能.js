@@ -1,5 +1,5 @@
 import { Config } from '../components/index.js'
-import { translateChinaNum } from '../lib/translateChinaNum.js'
+import dm from '../lib/dm.js'
 const Numreg = '[零一壹二两三四五六七八九十百千万亿\\d]+'
 
 export class example extends plugin {
@@ -65,7 +65,7 @@ export class example extends plugin {
     let qq = e.message.find(item => item.type == "at")?.qq
     if (!qq || !(/\d{5,}/.test(qq))) return e.reply("少女为你痛哭 \n主人，你好像输入了错误的QQ号")
     let reg = new RegExp(`^#(跑路)?禁言\\s?((\\d+)\\s)?(${Numreg})?(分|分钟|时|小时|天|日)?$`)
-        let time = translateChinaNum(e.msg.match(reg)[3])
+        let time = dm.translateChinaNum(e.msg.match(reg)[3])
         let date = e.msg.match(reg)[4]
         if (date == '分' || date == '分钟') {
             let bantime = time * 60
