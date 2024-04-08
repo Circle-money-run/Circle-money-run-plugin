@@ -1,5 +1,5 @@
 import { Config } from '../components/index.js'
-import translateChinaNum from '../lib/translateChinaNum.js'
+import { translateChinaNum } from '../lib/translateChinaNum.js'
 const Numreg = '[零一壹二两三四五六七八九十百千万亿\\d]+'
 
 export class example extends plugin {
