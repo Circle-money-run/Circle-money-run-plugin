@@ -2,6 +2,7 @@ import YAML from 'yaml'
 import chokidar from 'chokidar'
 import fs from 'node:fs'
 import lodash from 'lodash'
+import cfg from "../../../lib/config/config.js"
 
 const Path = process.cwd();
 const Plugin_Name = 'Circle-money-run-plugin'
@@ -27,6 +28,11 @@ class Config {
    */
   getdefSet (app, name) {
     return this.getYaml(app, name, 'defSet')
+  }
+  
+  /** 主人配置 */
+  get masterQQ() {
+    return cfg.masterQQ
   }
 
   /** 用户配置 */
@@ -55,7 +61,7 @@ class Config {
         fs.readFileSync(file, 'utf8')
       )
     } catch (error) {
-      logger.error(`[小飞插件][${app}][${name}] 格式错误 ${error}`)
+      logger.error(`[跑路插件][${app}][${name}] 格式错误 ${error}`)
       return false
     }
 

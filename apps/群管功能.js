@@ -17,6 +17,10 @@ export class example extends plugin {
           reg: `^#(跑路)?全(体|员)(禁言|解禁)$`,
           fnc: "MuteAll"
         },
+        {
+          reg: "^#踢(\\d+)?$",
+          fnc: "KickMember"
+        }
       ]
     })
   }
@@ -47,7 +51,7 @@ export class example extends plugin {
 
     let res = await e.group.setAdmin(qq, type)
     if (!res) return e.reply("少女为你痛哭")
-    type ? e.reply(`已设置用户「${name}」为管理员`) : e.reply(`已取消用户「${name}」的管理员权限`)
+    type ? e.reply(`主人，已经将用户「${name}」设置成管理员了哦`) : e.reply(`主人，已经取消用户「${name}」的管理员权限了哦`)
   }
     async MuteAll(e) {
     if (!/跑路/.test(e.msg) && !Config.getConfig('set','sz')['qg']){return false}
@@ -70,4 +74,23 @@ export class example extends plugin {
     if (!res) return e.reply("少女为你痛哭", true)
     e.reply(`主人，已经为你${type ? "开启" : "关闭"}全体禁言了哦`)
      }
+     async KickMember(e) {
+     if (!/跑路/.test(e.msg) && !Config.getConfig('set','sz')['qg']){return false}
+    if (!(e.member.is_admin || e.isMaster)){
+     this.reply('少女为你痛哭，你好像还没有权限')
+     return true
+     }
+   if (!e.group.is_admin){
+   this.reply('少女自毁了~')
+   return true
+   }
+   let qq = e.message.find(item => item.type == "at")?.qq
+   if ((Config.masterQQ?.includes(Number(qq)))){
+   this.reply("少女为你痛哭，你好像还没有权限对主人操作")
+   return true
+   }
+   let res = await group.kickMember(Number(qq)
+   if (!res) return e.reply("少女为你痛哭", true)
+   e.reply(`主人，已经将这个坏人『${qq}』给踢掉了`)
+  }
   }
