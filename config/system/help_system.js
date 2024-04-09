@@ -100,11 +100,16 @@ export const helpList = [
         "icon": 30,
         "title": "戳一戳",
         "desc": "戳机器人会随机发送白圣女表情"
+      },
+      {
+        "icon": 30,
+        "title": "#跑路版本  #跑路更新日志",
+        "desc": "查看当前版本和更新日志"
       }
     ]
   },
   {
-    "group": "管理命令，仅管理员可用",
+    "group": "管理命令，仅主人可用",
     "auth": "master",
     "list": [
       {
@@ -126,11 +131,6 @@ export const helpList = [
         "icon": 32,
         "title": "#跑路设置",
         "desc": "配置跑路功能"
-      },
-      {
-        "icon": 92,
-        "title": "#跑路版本  #跑路更新日志",
-        "desc": "查看当前版本和更新日志"
       }
     ]
   }
