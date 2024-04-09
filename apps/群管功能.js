@@ -85,6 +85,7 @@ export class example extends plugin {
    return true
    }
    let qq = e.message.find(item => item.type == "at")?.qq
+   if (!qq || !(/\d{5,}/.test(qq))) return e.reply("少女为你痛哭 \n您好像输入了错误的QQ号")
    if ((Config.masterQQ?.includes(Number(qq)))){
    this.reply("少女为你痛哭，你好像还没有权限对主人操作")
    return true
