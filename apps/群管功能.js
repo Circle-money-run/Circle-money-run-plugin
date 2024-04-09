@@ -89,7 +89,7 @@ export class example extends plugin {
    this.reply("少女为你痛哭，你好像还没有权限对主人操作")
    return true
    }
-   let res = await group.kickMember(Number(qq)
+   let res = await group.kickMember(Number(qq))
    if (!res) return e.reply("少女为你痛哭", true)
    e.reply(`主人，已经将这个坏人『${qq}』给踢掉了`)
   }
