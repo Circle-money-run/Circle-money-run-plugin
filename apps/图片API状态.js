@@ -18,6 +18,7 @@ export class example extends plugin {
     }
 
     async api(e) {
+    this.reply('少女祈祷中')
         fetch('http://api.botqsign.icu/')
   .then(response => {
     if (!response.ok) {
