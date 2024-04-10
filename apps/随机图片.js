@@ -44,7 +44,7 @@ if (e.msg.includes('随机瑜笙')) {
   async send(e,buttontext,path) {
   const randomnumber = Math.random();
 console.log(randomnumber);
-  let url = encodeURI(`http://api.botqsign.icu/api/${path}?${randomnumber}`)
+  let url = encodeURI(`http://api.botqsign.icu/${path}?${randomnumber}`)
   let buttons = [
         [
           {
