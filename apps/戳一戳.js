@@ -25,7 +25,7 @@ export class example extends plugin {
   async cyc (e) {
     if(!Config.getConfig('set','sz')['cyc']){return false}
     if(e.target_id == e.self_id){
-    let url = encodeURI(`http://api.botqsign.icu/api/xn`)
+    let url = encodeURI(`http://api.botqsign.icu/xn`)
     await this.e.reply(segment.image(url))
     return true
   }

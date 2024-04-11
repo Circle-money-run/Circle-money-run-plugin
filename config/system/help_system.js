@@ -88,11 +88,6 @@ export const helpList = [
       },
       {
         "icon": 30,
-        "title": "#词库搜索+任意词",
-        "desc": "相当于字典(其实是懒得解释)"
-      },
-      {
-        "icon": 30,
         "title": "网页截图预览",
         "desc": "识别链接并自动截图发出，通过#跑路设置关闭"
       },
@@ -105,6 +100,11 @@ export const helpList = [
         "icon": 30,
         "title": "#跑路版本  #跑路更新日志",
         "desc": "查看当前版本和更新日志"
+      },
+      {
+        "icon": 30,
+        "title": "#跑路api状态",
+        "desc": "查看当前图片api状态"
       }
     ]
   },
