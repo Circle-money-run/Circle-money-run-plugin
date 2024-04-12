@@ -33,7 +33,7 @@ export class VoiceMessageSender extends plugin {
     }
 
     async xxxcq(e) {
-        await this.e.reply(segment.record('http://api.botqsign.icu/voice/xxx));
+        await this.e.reply(segment.record('http://api.botqsign.icu/voice/xxx'));
         return true
     }
     async cjdl(e) {
