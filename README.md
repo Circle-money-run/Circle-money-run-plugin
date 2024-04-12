@@ -26,7 +26,7 @@ git clone --depth=1 https://github.com/yusheng929/Circle-money-run-plugin ./plug
 ```
 
 # 当前功能
-![HELP](https://github.com/yusheng929/Circle-money-run-plugin/raw/main/resources/README/bz.jpg)
+![HELP](http://api.botqsign.icu/bz)
 
 ## 配置文件
 ``` js
