@@ -18,7 +18,7 @@ export class example extends plugin {
           fnc: "MuteAll"
         },
         {
-          reg: "^#踢(\\d+)?$",
+          reg: "^#(跑路)?踢(\\d+)?$",
           fnc: "KickMember"
         }
       ]
