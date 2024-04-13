@@ -15,8 +15,8 @@ export class example extends plugin {
   }
 
   async random(e) {
-  if (e.msg.includes('随机猫猫糕')) {
-let buttontext = "猫猫糕"
+if (e.msg.includes('随机猫猫糕')) {
+  let buttontext = "猫猫糕"
   let path = "mmg"
   return this.send(e,buttontext,path)}
   
@@ -39,12 +39,12 @@ if (e.msg.includes('随机瑜笙')) {
   let buttontext = "瑜笙"
   let path = "yusheng"
   return this.send(e,buttontext,path)}
-  }
 
 if (e.msg.includes('随机狐狐')) {
   let buttontext = "狐狐"
   let path = "huhu"
   return this.send(e,buttontext,path)}
+  }
   
   async send(e,buttontext,path) {
   const randomnumber = Math.random();
