@@ -7,7 +7,7 @@ export class example extends plugin {
       priority: -10,
       rule: [
         {
-          reg: "^#?随机(猫猫糕|寒暄|心海|小心心|瑜笙)$",
+          reg: "^#?随机(猫猫糕|寒暄|心海|小心心|瑜笙|狐狐)$",
           fnc: 'random'
         }
       ]
@@ -40,6 +40,11 @@ if (e.msg.includes('随机瑜笙')) {
   let path = "yusheng"
   return this.send(e,buttontext,path)}
   }
+
+if (e.msg.includes('随机狐狐')) {
+  let buttontext = "狐狐"
+  let path = "huhu"
+  return this.send(e,buttontext,path)}
   
   async send(e,buttontext,path) {
   const randomnumber = Math.random();
