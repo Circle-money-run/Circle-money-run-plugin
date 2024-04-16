@@ -15,7 +15,7 @@ export class example extends plugin {
       ]
     })
   }
-  async cj (e) {
+  async start (e) {
     if (!(e.isMaster)){return e.reply('少女为你痛哭\n 你好像还没有权限操作')}
     const filePath = path.join('plugins/Circle-money-run-plugin/model/app');
 fs.access(filePath, fs.constants.F_OK, (err) => {
