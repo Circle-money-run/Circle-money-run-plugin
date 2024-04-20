@@ -18,7 +18,7 @@ git clone --depth=1 https://gitee.com/theqingyao/Circle-money-run-plugin ./plugi
 ```
 ## ghproxy安装(国内推荐)(更新较快)
 ``` bash
-git clone --depth=1 https://mirror.ghproxy.com/https://github.com/yusheng929/Circle-money-run-plugin
+git clone --depth=1 https://mirror.ghproxy.com/https://github.com/yusheng929/Circle-money-run-plugin ./plugins/Circle-money-run-plugin
 ```
 ## GitHub安装(国外推荐)(更新较快)
 ``` bash
