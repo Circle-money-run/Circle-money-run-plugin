@@ -14,15 +14,15 @@
 在Yzai根目录执行即可
 ## Gitee安装(国内推荐)(更新较慢)
 ``` bash
-git clone --depth=1 https://gitee.com/theqingyao/Circle-money-run-plugin ./plugins/Circle-money-run-plugin
+git clone --depth=1 https://gitee.com/Circle-money-run/Circle-money-run-plugin ./plugins/Circle-money-run-plugin
 ```
 ## ghproxy安装(国内推荐)(更新较快)
 ``` bash
-git clone --depth=1 https://mirror.ghproxy.com/https://github.com/yusheng929/Circle-money-run-plugin ./plugins/Circle-money-run-plugin
+git clone --depth=1 https://mirror.ghproxy.com/https://github.com/Circle-money-run/Circle-money-run-plugin ./plugins/Circle-money-run-plugin
 ```
 ## GitHub安装(国外推荐)(更新较快)
 ``` bash
-git clone --depth=1 https://github.com/yusheng929/Circle-money-run-plugin ./plugins/Circle-money-run-plugin
+git clone --depth=1 https://github.com/Circle-money-run/Circle-money-run-plugin ./plugins/Circle-money-run-plugin
 ```
 
 # 当前功能
