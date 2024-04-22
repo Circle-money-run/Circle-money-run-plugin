@@ -15,7 +15,8 @@ export class example extends plugin {
             priority: -10,
             rule: [{
             reg: "^#裁定(\\d+)?$",
-            fnc: 'doBan'
+            fnc: 'doBan',
+            log: false
            }]
          });
         }
@@ -47,6 +48,7 @@ async doBan(e) {
             await e.reply(`根据『谕示裁定枢机』给出的结果 \n『${Name}』死刑`);
             await e.group.muteMember(qq, banQQtime);
         }
+        logger.info(`用户[${logger.green(`${this.e.user_id}`)}] 在群[${logger.pink(`${this.e.group_id}`)}] 触发功能 > [${logger.blue('裁定.js')}]`)
      return true;
   }
  }

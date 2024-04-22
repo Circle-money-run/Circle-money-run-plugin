@@ -8,13 +8,14 @@ export class example extends plugin {
       rule: [
         {
           reg: '^#跑路插件$',
-          fnc: 'cj'
+          fnc: 'cj',
+          log: false
         }
       ]
     })
   }
   async cj (e) {
-    logger.info('[圈钱跑路.js插件]')
+  logger.info(`用户[${logger.green(`${this.e.user_id}`)}] 在群[${logger.pink(`${this.e.group_id}`)}] 触发功能 > [${logger.blue('Circle-money-run-plugin.js')}]`)
     let msg = "https://gitee.com/theqingyao/Circle-money-run-plugin"
     e.reply(msg,true)
     return true

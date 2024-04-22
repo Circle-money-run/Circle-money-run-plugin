@@ -16,7 +16,8 @@ export class example extends plugin {
           /** 命令正则匹配 */
           reg: '.*',
           /** 执行方法 */
-          fnc: 'cyc'
+          fnc: 'cyc',
+          log: false
         }
       ]
     })
@@ -27,6 +28,7 @@ export class example extends plugin {
     if(e.target_id == e.self_id){
     let url = encodeURI(`http://api.botqsign.icu/xn`)
     await this.e.reply(segment.image(url))
+    logger.info(`用户[${logger.green(`${this.e.user_id}`)}] 在群[${logger.pink(`${this.e.group_id}`)}] 触发功能 > [${logger.blue('戳一戳.js')}]`)
     return true
   }
     return false

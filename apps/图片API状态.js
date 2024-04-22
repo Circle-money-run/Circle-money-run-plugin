@@ -18,6 +18,7 @@ export class example extends plugin {
     }
 
     async api(e) {
+    logger.info(`用户[${logger.green(`${this.e.user_id}`)}] 在群[${logger.pink(`${this.e.group_id}`)}] 触发功能 > [${logger.blue('图片API状态.js')}]`)
     this.reply('少女祈祷中')
         fetch('http://api.botqsign.icu/')
   .then(response => {

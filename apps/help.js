@@ -19,13 +19,15 @@ export class example extends plugin {
           /** 命令正则匹配 */
           reg: '^#?(跑路|圈钱跑路|⭕💰🏃🛣|🏃🛣|run)(插件)?(命令|帮助|功能|指令)$',
           /** 执行方法 */
-          fnc: 'message'
+          fnc: 'message',
+          log: false
         }
       ]
     });
   }
 
   async message() {
+    logger.info(`用户[${logger.green(`${this.e.user_id}`)}] 在群[${logger.pink(`${this.e.group_id}`)}] 触发功能 > [${logger.blue('help.js')}]`)
     return await help(this.e);
   }
 
