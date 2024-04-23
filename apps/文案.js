@@ -54,7 +54,7 @@ if (e.msg.includes('治愈')) {
         msg,
         segment.button(...buttons),
       ]);
-      logger.info(`用户[${logger.green(`${this.e.user_id}`)}] 在群[${logger.pink(`${this.e.group_id}`)}] 触发功能 > [${logger.blue('文案.js')}]`)
+      logger.info(`用户[${logger.green(`${this.e.user_id}`)}] 在群[${logger.powder(`${this.e.group_id}`)}] 触发功能 > [${logger.blue('文案.js')}]`)
       return true  
     }
 }
