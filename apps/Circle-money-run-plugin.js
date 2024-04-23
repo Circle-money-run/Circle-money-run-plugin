@@ -15,7 +15,7 @@ export class example extends plugin {
     })
   }
   async cj (e) {
-  logger.info(`用户[${logger.green(`${this.e.user_id}`)}] 在群[${logger.pink(`${this.e.group_id}`)}] 触发功能 > [${logger.blue('Circle-money-run-plugin.js')}]`)
+  logger.info(`用户[${logger.green(`${this.e.user_id}`)}] 在群[${logger.powder(`${this.e.group_id}`)}] 触发功能 > [${logger.blue('Circle-money-run-plugin.js')}]`)
     let msg = "https://gitee.com/theqingyao/Circle-money-run-plugin"
     e.reply(msg,true)
     return true
