@@ -89,7 +89,7 @@ console.log(randomnumber);
         segment.image(url),
         segment.button(...buttons),
       ]);
-      logger.info(`用户[${logger.green(`${this.e.user_id}`)}] 在群[${logger.powder(`${this.e.group_id}`)}] 触发功能 > [${logger.blue('随机图片.js')}]`)
+      logger.info(`用户[${logger.green(`${this.e.user_id}`)}] 在群[${logger.red(`${this.e.group_id}`)}] 触发功能 > [${logger.blue('随机图片.js')}]`)
       return true  
     }
 }

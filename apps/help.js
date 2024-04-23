@@ -27,7 +27,7 @@ export class example extends plugin {
   }
 
   async message() {
-    logger.info(`用户[${logger.green(`${this.e.user_id}`)}] 在群[${logger.powder(`${this.e.group_id}`)}] 触发功能 > [${logger.blue('help.js')}]`)
+    logger.info(`用户[${logger.green(`${this.e.user_id}`)}] 在群[${logger.red(`${this.e.group_id}`)}] 触发功能 > [${logger.blue('help.js')}]`)
     return await help(this.e);
   }
 
