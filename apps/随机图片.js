@@ -8,7 +8,8 @@ export class example extends plugin {
       rule: [
         {
           reg: "^#?随机(猫猫糕|寒暄|心海|小心心|瑜笙|狐狐|猫猫虫|柴郡|七濑|七濑胡桃|胡桃|宵宫)$",
-          fnc: 'random'
+          fnc: 'random',
+          log: false
         }
       ]
     })
@@ -88,7 +89,7 @@ console.log(randomnumber);
         segment.image(url),
         segment.button(...buttons),
       ]);
-      logger.info(`用户[${logger.green(`${this.e.user_id}`)}] 在群[${logger.pink(`${this.e.group_id}`)}] 触发功能 > [${logger.blue('随机图片.js')}]`)
+      logger.info(`用户[${logger.green(`${this.e.user_id}`)}] 在群[${logger.powder(`${this.e.group_id}`)}] 触发功能 > [${logger.blue('随机图片.js')}]`)
       return true  
     }
 }
