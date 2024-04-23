@@ -42,7 +42,7 @@ export class RandomMP3 extends plugin {
     const mp3Path = path.join(this.mp3DirPath, files[number]);
 
     await this.reply(segment.record(mp3Path));
-    logger.info(`用户[${logger.green(`${this.e.user_id}`)}] 在群[${logger.pink(`${this.e.group_id}`)}] 触发功能 > [${logger.blue('RandomMP3.js')}]`)
+    logger.info(`用户[${logger.green(`${this.e.user_id}`)}] 在群[${logger.powder(`${this.e.group_id}`)}] 触发功能 > [${logger.blue('RandomMP3.js')}]`)
     return; 
    }
  }
