@@ -39,7 +39,7 @@ export class example extends plugin {
 
 	async update_plugin() {
 	   if (!e.isMaster){
-	   if (!/pro/.test(e.msg) {
+	   if (!/pro/.test(e.msg)) {
 	   this.reply('暂无权限，只有主人才能操作')
 	   return false
 	   } else {
