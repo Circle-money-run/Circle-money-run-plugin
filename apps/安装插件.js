@@ -24,8 +24,11 @@ export class example extends plugin {
     if (url.match(urlformat)) {
     let parts = url.split('/');
     let Name = parts[parts.length - 1];
-    const command = `git clone --depth=1 ${url} ./plugins/${Name}`;
-    this.reply(`少女祈祷中\n正在为你安装插件${Name}`)
+    if (await Bot.fsStat(`plugins/${Name}`)) {
+      await this.reply(`少女为你痛哭\n你好像已经安装了${Name}`)
+      return false
+    }
+    await this.reply(`少女祈祷中\n正在为你安装插件${Name}`)
 
     const fix = await exec(`git clone --depth=1 ${url} ./plugins/${Name}`)
    if (await Bot.fsStat(`plugins/${Name}/package.json`))
@@ -34,7 +37,7 @@ export class example extends plugin {
       this.reply(`安装错误:${error.message}`)
       return false
     }
-    this.reply('安装成功，开始执行重启')
+    await this.reply('安装成功，开始执行重启')
     this.restart()
 } else {
     this.reply('少女为你痛哭\n你好像输入了错误的仓库地址')

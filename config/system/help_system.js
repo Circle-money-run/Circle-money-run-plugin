@@ -24,7 +24,7 @@ export const helpCfg = {
 }
 export const helpList = [
   {
-    "group": "基本功能",
+    "group": "随机功能",
     "list": [
       {
         "icon": 30,
@@ -113,13 +113,18 @@ export const helpList = [
       },
       {
         "icon": 30,
-        "title": "网页截图预览",
-        "desc": "识别链接并自动截图发出，通过#跑路设置关闭"
-      },
-      {
-        "icon": 30,
         "title": "戳一戳",
         "desc": "戳机器人会随机发送白圣女表情"
+      }
+    ]
+  },
+  {
+    "group": "其他功能",
+    "list": [
+      {
+        "icon": 30,
+        "title": "#跑路api状态",
+        "desc": "查看当前图片api状态"
       },
       {
         "icon": 30,
@@ -128,8 +133,28 @@ export const helpList = [
       },
       {
         "icon": 30,
-        "title": "#跑路api状态",
-        "desc": "查看当前图片api状态"
+        "title": "网页截图预览",
+        "desc": "识别链接截图发送"
+      }
+    ]
+  },
+  {
+    "group": "群管功能",
+    "list": [
+      {
+        "icon": 30,
+        "title": "#跑路设置管理@114514",
+        "desc": "字面意思"
+      },
+      {
+        "icon": 30,
+        "title": "#跑路踢@114514",
+        "desc": "字面意思"
+      },
+      {
+        "icon": 30,
+        "title": "#跑路全体(禁言|解禁)",
+        "desc": "字面意思"
       }
     ]
   },
@@ -144,8 +169,8 @@ export const helpList = [
       },
       {
         "icon": 48,
-        "title": "#跑路安装插件",
-        "desc": "快捷安装插件(测试中，有一点点，但是绝对不会影响其他插件)"
+        "title": "#跑路安装插件+链接",
+        "desc": "快捷安装插件"
       },
       {
         "icon": 85,
