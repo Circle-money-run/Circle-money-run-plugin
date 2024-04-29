@@ -1,4 +1,5 @@
 import { exec } from 'child_process'
+import { Restart } from "../../restart.js"
 
 export class example extends plugin {
   constructor () {
@@ -20,25 +21,26 @@ export class example extends plugin {
     let url = this.e.msg.replace(/^#(跑路)?安装插件/, "").trim()
     let urlformat = /^(https?:\/\/)?(gitee\.com|github\.com)\/[a-zA-Z0-9_-]+\/[a-zA-Z0-9_-]+$/;
     if (url.match(urlformat)) {
-    this.reply('开始执行安装')
     let parts = url.split('/');
     let Name = parts[parts.length - 1];
     const command = `git clone --depth=1 ${url} ./plugins/${Name}`;
+    this.reply(`少女祈祷中\n正在为你安装插件${Name}`)
 
-exec(command, (error, stdout, stderr) => {
-  if (error) {
-    this.reply(`执行命令时出错: ${error.message}`);
-    return;
-  }
-  if (stderr) {
-    this.reply(`命令执行出现错误: ${stderr}`);
-    return;
-  }
-  this.reply(`安装完成，开始执行重启`);
-});
+    const fix = await exec(`git clone --depth=1 ${url} ./plugins/${Name}`)
+     if (fix.error) {
+      this.reply(`安装错误:${error.message}`)
+      return false
+    }
+   if (await fsStat(`plugins/${Name}/package.json`))
+      await exec("pnpm install")
+    this.reply('安装成功，开始执行重启')
+    this.restart()
 } else {
     this.reply('少女为你痛哭\n你好像输入了错误的仓库地址')
 }
     return true
+  }
+  restart() {
+    new Restart(this.e).restart()
   }
 }
