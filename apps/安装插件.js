@@ -19,6 +19,21 @@ export class example extends plugin {
     let urlformat = /^(https?:\/\/)?(gitee\.com|github\.com)\/[a-zA-Z0-9_-]+\/[a-zA-Z0-9_-]+$/;
     if (url.match(urlformat)) {
     this.reply('开始执行安装')
+    await let parts = url.split('/');
+    await let Name = parts[parts.length - 1];
+    const command = `git clone --depth=1 ${url} ./plugins/${Name}`;
+
+exec(command, (error, stdout, stderr) => {
+  if (error) {
+    this.reply(`执行命令时出错: ${error.message}`);
+    return;
+  }
+  if (stderr) {
+    this.reply(`命令执行出现错误: ${stderr}`);
+    return;
+  }
+  this.reply(`安装完成，开始执行重启`);
+});
 } else {
     this.reply('少女为你痛哭\n你好像输入了错误的仓库地址')
 }
