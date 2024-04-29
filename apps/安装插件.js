@@ -28,12 +28,12 @@ export class example extends plugin {
     this.reply(`少女祈祷中\n正在为你安装插件${Name}`)
 
     const fix = await exec(`git clone --depth=1 ${url} ./plugins/${Name}`)
-     if (fix.error) {
+   if (await Bot.fsStat(`plugins/${Name}/package.json`))
+      await exec("pnpm install")
+      if (fix.error) {
       this.reply(`安装错误:${error.message}`)
       return false
     }
-   if (await fsStat(`plugins/${Name}/package.json`))
-      await exec("pnpm install")
     this.reply('安装成功，开始执行重启')
     this.restart()
 } else {
