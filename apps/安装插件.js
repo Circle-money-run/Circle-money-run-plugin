@@ -1,3 +1,5 @@
+import { exec } = 'child_process'
+
 export class example extends plugin {
   constructor () {
     super({
