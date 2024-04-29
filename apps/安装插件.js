@@ -14,7 +14,7 @@ export class example extends plugin {
     })
   }
   async install (e) {
-    if (!isMaster) {return this.reply('暂无权限')}
+    if (!(e.isMaster)) {return this.reply('暂无权限')}
     let url = this.e.msg.replace(/^#(跑路)?安装插件/, "").trim()
     let urlformat = /^(https?:\/\/)?(gitee\.com|github\.com)\/[a-zA-Z0-9_-]+\/[a-zA-Z0-9_-]+$/;
     if (url.match(urlformat)) {
