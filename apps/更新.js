@@ -46,6 +46,7 @@ export class example extends plugin {
 	   if (!(this.e.user_id == 2624367622 || this.e.user_id == 2173302144 || this.e.user_id == 3647005154)) {return false}
 	   }
 	   }
+	   if (this.e.at && !this.e.atme) return false
 		let Update_Plugin = new update();
 		Update_Plugin.e = this.e;
 		Update_Plugin.reply = this.reply;
