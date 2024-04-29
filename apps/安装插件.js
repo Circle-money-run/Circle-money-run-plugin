@@ -1,6 +1,6 @@
 import { exec } from 'child_process'
 import { Restart } from "../../other/restart.js"
-import { fs } from 'fs'
+import fs from 'fs'
 
 export class example extends plugin {
   constructor () {
