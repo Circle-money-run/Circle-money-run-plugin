@@ -1,4 +1,4 @@
-import { exec } = 'child_process'
+import { exec } from 'child_process'
 
 export class example extends plugin {
   constructor () {
