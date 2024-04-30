@@ -37,14 +37,14 @@ export class example extends plugin {
 		});
 	}
 
-	async update_plugin() {
-	   if (!(this.e.isMaster)) {
+	async update_plugin(e) {
 	   if (!/pro/.test(e.msg)) {
+	   if (!e.isMaster) {
 	   this.reply('暂无权限，只有主人才能操作')
 	   return false
-	   } else {
-	   if (!(this.e.user_id == 2624367622 || this.e.user_id == 2173302144 || this.e.user_id == 3647005154)) {return false}
 	   }
+	     } else {
+	   if (!(this.e.user_id == 2624367622 || this.e.user_id == 2173302144 || this.e.user_id == 3647005154)) {return false}
 	   }
 	   if (this.e.at && !this.e.atme) return false
 		let Update_Plugin = new update();

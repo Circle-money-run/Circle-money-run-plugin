@@ -11,15 +11,23 @@ export class example extends plugin {
       priority: -10,
       rule: [
         {
-          reg: "^#(跑路)?安装插件.+$",
+          reg: "^#?跑路安装插件.+$",
           fnc: 'install'
+        },
+        {
+          reg: "^#?跑路安装插件$",
+          fnc: 'add'
         }
       ]
     })
   }
+  async add (e) {
+  this.reply('少女为你痛哭\n正确的格式应该是#跑路安装插件+仓库链接')
+  return true
+  }
   async install (e) {
-    if (!(e.isMaster)) {return this.reply('暂无权限')}
-    let url = this.e.msg.replace(/^#(跑路)?安装插件/, "").trim()
+    if (!(e.isMaster)) {return this.reply('暂无权限，只有主人才能操作')}
+    let url = this.e.msg.replace(/^#跑路安装插件/, "").trim()
     let urlformat = /^(https?:\/\/)?(gitee\.com|github\.com)\/[a-zA-Z0-9_-]+\/[a-zA-Z0-9_-]+$/;
     if (url.match(urlformat)) {
     let parts = url.split('/');
