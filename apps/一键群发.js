@@ -18,7 +18,7 @@ export class example extends plugin {
    this.setContext("send")
     return this.reply("请发送要群发的内容", false, { at: true })
   }
-  send (e) {
+  send () {
     this.finish("send")
     for (let group of Bot[e.self_id].gl.keys()){
 		  Bot[e.self_id].pickGroup(group).sendMsg(e.message)
