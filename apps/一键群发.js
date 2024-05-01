@@ -8,12 +8,12 @@ export class example extends plugin {
       rule: [
         {
           reg: '^#跑路群发$',
-          fnc: 'end',
+          fnc: 'qf',
         }
       ]
     })
   }
-  async end (e) {
+  async qf(e) {
   if (!e.isMaster){return e.reply('暂无权限，只有主人才能操作')}
    this.setContext("send")
     return this.reply("请发送要群发的内容", false, { at: true })
