@@ -3,6 +3,7 @@ import fs from "fs";
 import { exec,execSync } from 'child_process'
 import { Restart } from '../../other/restart.js'
 let path=process.cwd()+'/plugins/Circle-money-run-plugin/'
+import fse from 'fs-extra'
 
 export class xz extends plugin {
 constructor() {
@@ -13,7 +14,7 @@ super({
  priority: -999999999999999999999999999999999999999999,
 rule: [
       	{
-        	reg: '^#跑路插件卸载$',
+        	reg: '^#跑路卸载插件$',
             fnc: 'xz'
          }
          ]
@@ -23,7 +24,7 @@ rule: [
 async xz(e) {
  if (!e.isMaster) {return e.reply('只有主人可以操作')}
     if (fs.existsSync(path)) {
-     let a= await execSync('rm -rf plugins/Circle-money-run-plugin  ');
+     let a= await fse.remove('plugins/Circle-money-run-plugin');
  if(a.error){
  e.reply('卸载失败~请手动尝试')
      return true
