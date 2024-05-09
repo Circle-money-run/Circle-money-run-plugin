@@ -20,5 +20,6 @@
   "author": "瑜笙",
   "license": "MIT",
   "dependencies": {
+    "ws": "^8.14.2"
   }
 }
