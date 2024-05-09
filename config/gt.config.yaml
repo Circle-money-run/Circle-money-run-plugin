@@ -6,10 +6,10 @@ verifyAddr: 'http://gt.botqsign.icu/GTest/register?key=免费开源项目-您如
 # mys手动签到 0-关闭 1-开启
 sign: 1
 # 手动签到API, 仅发送uid、gt验证码信息, 不发送qq、cookie等敏感信息
-signAddr: 'ws://gt.botqsign.icu/mysSign?key=免费开源项目-您如果是交易获得则是被骗-请及时退款并举报''
+signAddr: 'ws://gt.botqsign.icu/mysSign?key=免费开源项目-您如果是交易获得则是被骗-请及时退款并举报'
 
 
 # 黑名单QQ，不使用手动过码，有其他过码插件会next下一个过码服务
 blackList:
   - 10001
-  - 10002
+  - 100022
