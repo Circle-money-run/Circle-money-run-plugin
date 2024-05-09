@@ -113,5 +113,4 @@ const getStatus = function (rote, def = false) {
 	}
 
 	return `<div class="${_class}">${value}</div>`;
-}/div>`;
 }
