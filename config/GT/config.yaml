@@ -12,4 +12,4 @@ signAddr: 'ws://gt.botqsign.icu/mysSign?key=2624367622'
 # 黑名单QQ，不使用手动过码，有其他过码插件会next下一个过码服务
 blackList:
   - 10001
-  - 100022
+  - 10002

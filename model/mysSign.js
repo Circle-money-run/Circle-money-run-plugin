@@ -34,7 +34,7 @@ export default class MysSign {
     if (signInfo.retcode == -100) {
       return {
         retcode: -100,
-        msg: '签到失败: 绑定cookie已失效',
+        msg: `签到失败: 绑定cookie已失效`,
         is_invalid: true
       }
     }

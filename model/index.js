@@ -5,7 +5,7 @@ import fs from 'node:fs'
 import YAML from 'yaml'
 import fetch from 'node-fetch'
 
-export default new class Tools {
+class Tools {
   constructor () {
     this._wait = this._wait || {}
     if (this.Cfg.sign) {
@@ -14,7 +14,7 @@ export default new class Tools {
   }
 
   get Cfg () {
-    let file = './plugins/Circle-money-run-plugin/config/gt.config.yaml'
+    let file = './plugins/Circle-money-run-plugin/GT/config.yaml'
     this._cfg = this._cfg || YAML.parse(fs.readFileSync(file, 'utf8'))
     return this._cfg
   }
@@ -32,7 +32,7 @@ export default new class Tools {
     this.ws.on('error', logger.error)
     this.ws.on('open', () => logger.mark('[GT-Manual] WebSocket已连接'))
     this.ws.on('close', (code) => {
-      logger.error(`[Circle-money-run-plugin] WebSocket已断开, code: ${code}`)
+      logger.error(`[GT-Manual] WebSocket已断开, code: ${code}`)
       this.ws = null
     })
     this.ws.on('message', (data) => {
@@ -40,7 +40,7 @@ export default new class Tools {
         data = JSON.parse(data)
         let { id, cmd, payload, key } = data
         this._key = key
-        this._wait[id] ? this._wait[id](payload) : this[cmd] && this[cmd](payload, id)
+        this._wait[id] && this._wait[id](payload) || this[cmd] && this[cmd](payload, id)
       } catch (err) {
         logger.error(err)
       }
@@ -57,7 +57,7 @@ export default new class Tools {
   }
 
   socketWrite (cmd, payload, id) {
-    if (!id || (typeof id == 'number' && String(id).length == 13)) id = +new Date()
+    if (!id || typeof id == 'number' && String(id).length == 13) id = new Date().getTime()
     return this.ws.send(JSON.stringify({ id, cmd, payload, key: this._key }))
   }
 
@@ -97,7 +97,7 @@ export default new class Tools {
     res = await res.json()
     if (!res.data) return false
 
-    await e.reply(`请打开地址并完成验证\n${res.data.link}`, true)
+    await e.reply(`米游社验证码\n${res.data.link}`, true, { recallMsg: 30 })
 
     for (let i = 0; i < 80; i++) {
       let validate = await fetch(res.data.result)
@@ -109,4 +109,6 @@ export default new class Tools {
     }
     return false
   }
-}()
+}
+
+export default new Tools()

@@ -1,7 +1,7 @@
-import { Config} from '../components/index.js'
 import md5 from 'md5'
 import lodash from 'lodash'
 import Tools from '../model/index.js'
+import { Config} from '../components/index.js'
 
 export class bbsVerification extends plugin {
   constructor (e) {
@@ -19,7 +19,7 @@ export class bbsVerification extends plugin {
       rule: [
         {
           dsc: '米游社手动签到',
-          reg: '^#*(原神|星铁|米游社)?签到$',
+          reg: '^#*(原神|星铁|米游社)?签到(.*)$',
           fnc: 'sign'
         },
         {
@@ -40,7 +40,7 @@ export class bbsVerification extends plugin {
   async mysReqErrHandler (e, options, reject) {
   if(!Config.getConfig('set','sz')['gt']){return false}
     let { mysApi, type, data } = options
-    let retcodeError = [1034, 5003]
+    let retcodeError = [1034, 5003, 10035]
     let cfg = Tools.Cfg
 
     if (
@@ -91,16 +91,22 @@ export class bbsVerification extends plugin {
 
   async sign (e) {
   if(!Config.getConfig('set','sz')['gt']){return false}
-    let { sign, signAddr } = Tools.Cfg
-    if (!(sign && signAddr)) return false
-
-    let key = md5(e.user_id)
-    if (!Tools.ws) {
-      Tools.connectWebSocket()
-      await new Promise((resolve) => setTimeout(resolve, 1000))
-      if (!Tools.ws) return false
-    }
-
+    let msg = e.msg.replace(/＃|#|原神|星铁|米游社|签到/g, '')
+    e.user_id = e.at || (msg && Number(msg)) || e.user_id
+    let key = `${+new Date()}`
+	if (!Tools.ws) {
+	 Tools.connectWebSocket();
+	  await new Promise((resolve) => {
+	    Tools.ws.onopen = () => {
+	      console.log('连接成功');
+	      resolve();
+	    };
+	  });	
+	  if (!Tools.ws) {
+	    console.log('连接失败');
+	    return false;
+	  }
+	}
     this.mysUsers = this.mysUsers || {}
     Tools.mysUsers = this.mysUsers
     Tools.MysUser = e.runtime.MysUser
@@ -112,7 +118,7 @@ export class bbsVerification extends plugin {
     this.mysUsers[key] = user.mysUsers
     let payload = this.getUidsData(key, e.user_id)
     let { link } = await Tools.socketSend('createUser', payload, key)
-    if (link) await e.reply(`签到地址: ${link}`)
+    if (link) await e.reply(`米游社签到\n${link}`, true, { recallMsg: 30 })
   }
 
   getUidsData (key, user_id) {
@@ -126,10 +132,8 @@ export class bbsVerification extends plugin {
     return uids
   }
 
-  async reconnection (e) {
-  if(!Config.getConfig('set','sz')['gt']){return false}
+  reconnection (e) {
     Tools.connectWebSocket()
-    await new Promise((resolve) => setTimeout(resolve, 1000))
     e.reply(Tools.ws ? '重连成功~' : '重连失败~')
   }
 
