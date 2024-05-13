@@ -25,7 +25,7 @@ export class example extends plugin {
   
   async cyc (e) {
     if(!Config.getConfig('set','sz')['cyc']){return false}
-    if(!e.target_id == e.self_id){return true}
+    if(e.target_id == e.self_id){
     let sj = Math.floor(Math.random() * 8) + 1
    let url;
     if (sj === 1){ url = encodeURI(`http://api.botqsign.icu/xn`) }
@@ -39,5 +39,7 @@ export class example extends plugin {
     await this.e.reply(segment.image(url))
     logger.info(`用户[${logger.green(`${this.e.user_id}`)}] 在群[${logger.red(`${this.e.group_id}`)}] 触发功能 > [${logger.blue('戳一戳.js')}]`)
     return true
+  }
+  return false
   }
 }
