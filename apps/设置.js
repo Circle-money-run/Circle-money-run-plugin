@@ -107,7 +107,7 @@ const getStatus = function (rote, def = false) {
 	}
 	if (!value) {
 		if (rote == 'sz.cycxy') {
-			value = 'alone';
+			value = 'all';
 		} else {
 			_class = `${_class}  status-off`;
 			value = '已关闭';
