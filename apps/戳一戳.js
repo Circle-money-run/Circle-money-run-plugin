@@ -25,12 +25,21 @@ export class example extends plugin {
   
   async cyc (e) {
     if(!Config.getConfig('set','sz')['cyc']){return false}
-    if(e.target_id == e.self_id){
-    let url = encodeURI(`http://api.botqsign.icu/xn`)
+    if(Config.getConfig('set','sz')['cycxy']=='alone'){
+       if(!e.target_id == e.self_id){return true}
+} 
+    let sj = Math.floor(Math.random() * 8) + 1
+   let url;
+    if (sj === 1){ let url = encodeURI(`http://api.botqsign.icu/xn`) }
+    if (sj === 2){ let url = encodeURI(`http://api.botqsign.icu/chaijun`) }
+    if (sj === 3){ let url = encodeURI(`http://api.botqsign.icu/xinhai`) }
+    if (sj === 4){ let url = encodeURI(`http://api.botqsign.icu/mmg`) }
+    if (sj === 5){ let url = encodeURI(`http://api.botqsign.icu/mmc`) }
+    if (sj === 6){ let url = encodeURI(`http://api.botqsign.icu/qilai`) }
+    if (sj === 7){ let url = encodeURI(`http://api.botqsign.icu/xiaogong`) }
+    if (sj === 8){ let url = encodeURI(`http://api.botqsign.icu/hutao`) }
     await this.e.reply(segment.image(url))
     logger.info(`用户[${logger.green(`${this.e.user_id}`)}] 在群[${logger.red(`${this.e.group_id}`)}] 触发功能 > [${logger.blue('戳一戳.js')}]`)
     return true
-  }
-    return false
   }
 }

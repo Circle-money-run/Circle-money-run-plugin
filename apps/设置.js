@@ -4,13 +4,13 @@ import { Config, Common } from '../components/index.js'
 import loader from '../../../lib/plugins/loader.js'
 import moment from 'moment'
 const cfgMap = {
-	'防艾特禁言时间': 'sz.bantime',
 	'戳一戳': 'sz.cyc',
 	'禁言嘲讽': 'sz.jycf',
 	'防艾特全体': 'sz.fatqt',
 	'截图预览': 'sz.jtyl',
 	'群管': 'sz.qg',
 	'过码': 'sz.gt',
+	'戳一戳响应': 'sz.cycxy',
 };
 
 const CfgReg = `^#?跑路(插件)?设置\\s*(${lodash.keys(cfgMap).join('|')})?\\s*(.*)$`;
@@ -50,9 +50,11 @@ async function set(e) {
 	if (reg && reg[2]) {
 		let val = reg[3] || '';
 		let cfgKey = cfgMap[reg[2]];
-		if (cfgKey == 'sz.bantime') {
-			if (isNaN(val) || val < 60 || val > 2592000){e.reply('设置错误，请设置60~2592000范围内的时间')
-				return true
+		if (cfgKey == 'sz.cycxy') {
+			let cycxy = ['all', 'alone'];
+			if (!cycxy(val)) {
+				e.reply('无效的设置', true);
+				return true;
 			}
 		} else if (val.includes('开启') || val.includes('关闭')) {
 			val = !/关闭/.test(val);
@@ -104,8 +106,8 @@ const getStatus = function (rote, def = false) {
 		}
 	}
 	if (!value) {
-		if (rote == 'sz.cyclx') {
-			value = '白圣女';
+		if (rote == 'sz.cycxy') {
+			value = 'alone';
 		} else {
 			_class = `${_class}  status-off`;
 			value = '已关闭';
