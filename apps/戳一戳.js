@@ -25,9 +25,10 @@ export class example extends plugin {
   
   async cyc (e) {
     if(!Config.getConfig('set','sz')['cyc']){return false}
-    if(Config.getConfig('set','sz')['cycxy'] ===alone){
+    let xy = Config.getConfig('set','sz')['cycxy']
+    if( xy  === "alone"){
        if(!e.target_id == e.self_id){return true}
-} 
+}
     let sj = Math.floor(Math.random() * 8) + 1
    let url;
     if (sj === 1){ url = encodeURI(`http://api.botqsign.icu/xn`) }
