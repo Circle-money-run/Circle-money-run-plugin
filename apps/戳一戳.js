@@ -25,7 +25,7 @@ export class example extends plugin {
   
   async cyc (e) {
     if(!Config.getConfig('set','sz')['cyc']){return false}
-    if(Config.getConfig('set','sz')['cycxy']=='alone'){
+    if(Config.getConfig('set','sz')['cycxy'] ===alone){
        if(!e.target_id == e.self_id){return true}
 } 
     let sj = Math.floor(Math.random() * 8) + 1
