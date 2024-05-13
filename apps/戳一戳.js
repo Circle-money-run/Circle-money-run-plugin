@@ -30,14 +30,14 @@ export class example extends plugin {
 } 
     let sj = Math.floor(Math.random() * 8) + 1
    let url;
-    if (sj === 1){ let url = encodeURI(`http://api.botqsign.icu/xn`) }
-    if (sj === 2){ let url = encodeURI(`http://api.botqsign.icu/chaijun`) }
-    if (sj === 3){ let url = encodeURI(`http://api.botqsign.icu/xinhai`) }
-    if (sj === 4){ let url = encodeURI(`http://api.botqsign.icu/mmg`) }
-    if (sj === 5){ let url = encodeURI(`http://api.botqsign.icu/mmc`) }
-    if (sj === 6){ let url = encodeURI(`http://api.botqsign.icu/qilai`) }
-    if (sj === 7){ let url = encodeURI(`http://api.botqsign.icu/xiaogong`) }
-    if (sj === 8){ let url = encodeURI(`http://api.botqsign.icu/hutao`) }
+    if (sj === 1){ url = encodeURI(`http://api.botqsign.icu/xn`) }
+    if (sj === 2){ url = encodeURI(`http://api.botqsign.icu/chaijun`) }
+    if (sj === 3){ url = encodeURI(`http://api.botqsign.icu/xinhai`) }
+    if (sj === 4){ url = encodeURI(`http://api.botqsign.icu/mmg`) }
+    if (sj === 5){ url = encodeURI(`http://api.botqsign.icu/mmc`) }
+    if (sj === 6){ url = encodeURI(`http://api.botqsign.icu/qilai`) }
+    if (sj === 7){ url = encodeURI(`http://api.botqsign.icu/xiaogong`) }
+    if (sj === 8){ url = encodeURI(`http://api.botqsign.icu/hutao`) }
     await this.e.reply(segment.image(url))
     logger.info(`用户[${logger.green(`${this.e.user_id}`)}] 在群[${logger.red(`${this.e.group_id}`)}] 触发功能 > [${logger.blue('戳一戳.js')}]`)
     return true
