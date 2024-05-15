@@ -12,13 +12,13 @@ export const helpCfg = {
   theme: 'all',
   themeExclude: ['default'],
   style: {
-    fontColor: '#ceb78b',
-    descColor: '#eee',
-    contBgColor: 'rgba(6, 21, 31, .5)',
+    fontColor: '#140D02',
+    descColor: '#000000',
+    contBgColor: 'rgba(6, 21, 31, 0)',
     contBgBlur: 3,
-    headerBgColor: 'rgba(6, 21, 31, .4)',
-    rowBgColor1: 'rgba(6, 21, 31, .2)',
-    rowBgColor2: 'rgba(6, 21, 31, .35)'
+    headerBgColor: 'rgba(6, 21, 31, 0)',
+    rowBgColor1: 'rgba(6, 21, 31, 0)',
+    rowBgColor2: 'rgba(6, 21, 31, 0)'
   },
   bgBlur: false
 }
