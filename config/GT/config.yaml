@@ -1,7 +1,7 @@
 # 1034手动验证 0-关闭 1-开启 2-仅原神 3-仅星铁
 verify: 1
 # 手动验证API, demo: https://gitee.com/QQ1146638442/GT-Manual
-verifyAddr: 'http://gt.botqsign.icu/GTest/register?key=2624367622'
+verifyAddr: 'https://gt.botqsign.icu/GTest/register?key=2624367622'
 
 # mys手动签到 0-关闭 1-开启
 sign: 1
