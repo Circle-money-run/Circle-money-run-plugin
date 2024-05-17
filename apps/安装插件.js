@@ -15,7 +15,7 @@ export class example extends plugin {
           fnc: 'install'
         },
         {
-          reg: "^#?跑路安装插件$",
+          reg: "^#?跑路(代理)?安装插件$",
           fnc: 'add'
         }
       ]
