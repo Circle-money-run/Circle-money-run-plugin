@@ -30,7 +30,7 @@ export class xz extends plugin {
     if (fs.existsSync(path)) {
       try {
         await fse.remove('plugins/Circle-money-run-plugin');
-        await e.reply('少女为你痛哭\n插件卸载完整，正在为你重启')
+        await e.reply('少女为你痛哭\n插件卸载完成，正在为你重启')
         setTimeout(() => new Restart(this.e).restart(), 600)
       } catch (error) {
         e.reply('卸载失败~请手动尝试')
