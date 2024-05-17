@@ -30,7 +30,7 @@ export class xz extends plugin {
     return this.reply("为防止误操作，请输入:\n#跑路确认卸载插件", false, { at: true })
   }
 
-   uninstall (){
+   async uninstall (){
    let msg = this.e.message
    if (!(msg === '#跑路确认卸载插件')){
    this.finish("uninstall")
