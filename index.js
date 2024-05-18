@@ -21,6 +21,16 @@ try {
 import fs from 'node:fs'
 import { Plugin_Path } from './components/index.js'
 
+if (!Bot.fsStat) {
+Bot.fsStat = (path) => {
+  return new Promise((resolve) => {
+    fs.stat(path, (err, stats) => {
+      resolve(!err && stats.isFile());
+    });
+  });
+}
+}
+
 if (!Bot.exec) {
   const { exec } = await import("node:child_process")
 
