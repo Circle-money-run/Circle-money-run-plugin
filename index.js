@@ -22,13 +22,17 @@ import fs from 'node:fs'
 import { Plugin_Path } from './components/index.js'
 
 if (!Bot.fsStat) {
-Bot.fsStat = (path) => {
-  return new Promise((resolve) => {
-    fs.stat(path, (err, stats) => {
-      resolve(!err && stats.isFile());
-    });
-  });
-}
+  Bot.fsStat = async (path) => {
+    try {
+      await fs.stat(path);
+      return true;
+    } catch (err) {
+      if (err.code === 'ENOENT') {
+        return false;
+      }
+      throw err;
+    }
+  };
 }
 
 if (!Bot.exec) {
