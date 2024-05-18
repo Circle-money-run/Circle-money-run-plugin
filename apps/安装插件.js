@@ -33,7 +33,7 @@ export class example extends plugin {
       return this.reply('暂无权限，只有主人才能操作')
     }
 
-    let url = e.msg.replace(/^#跑路(代理)?安装插件/, "").trim()
+    let url = e.msg.replace(/^#跑路(强制)?(代理)?安装插件/, "").trim()
     let isProxy = e.msg.includes("代理")
     let urlformat = /^(https?:\/\/)?(gitee\.com|github\.com)\/[a-zA-Z0-9_-]+\/[a-zA-Z0-9_-]+$/
 
