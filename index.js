@@ -22,16 +22,16 @@ import fs from 'node:fs'
 import { Plugin_Path } from './components/index.js'
 
 if (!Bot.fsStat) {
-  Bot.fsStat = async (path) => {
-    try {
-      await fs.stat(path);
-      return true;
-    } catch (err) {
-      if (err.code === 'ENOENT') {
-        return false;
-      }
-      throw err;
-    }
+  Bot.fsStat = (path) => {
+    return new Promise((resolve, reject) => {
+      fs.stat(path, (err, stats) => {
+        if (err) {
+          resolve(false); // 文件或目录不存在，返回false
+        } else {
+          resolve(true); // 文件或目录存在，返回true
+        }
+      });
+    });
   };
 }
 
