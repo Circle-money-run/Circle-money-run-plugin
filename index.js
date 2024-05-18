@@ -46,9 +46,9 @@ if (!YS.exec) {
         }
         if (error) logger.error(`[安装错误] ${logger.blue(cmd)}\n${logger.red(`${String(error).trim()}`)}`)
           }
-        }
-      });
-    });
+        })
+      })
+    };
   }
 
 
