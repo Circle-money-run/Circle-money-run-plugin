@@ -21,10 +21,10 @@ try {
 import fs from 'node:fs'
 import { Plugin_Path } from './components/index.js'
 
-if (!YS.exec) {
+if (!Bot.exec) {
   const { exec } = await import("node:child_process")
 
-  YS.exec = (cmd, opts = {}) => {
+  Bot.exec = (cmd, opts = {}) => {
     return new Promise((resolve) => {
       if (!opts.quiet) {
         logger.mark(`[执行安装命令] ${logger.blue(cmd)}`);

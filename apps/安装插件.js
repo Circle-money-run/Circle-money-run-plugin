@@ -53,7 +53,7 @@ export class example extends plugin {
         await fse.remove(`plugins/${Name}`);
       }
 
-      if (await YS.fsStat(`plugins/${Name}`)) {
+      if (await Bot.fsStat(`plugins/${Name}`)) {
         await this.reply(`少女为你痛哭\n你好像已经安装了${Name}\n如果需要重新安装该插件，请执行:\n#跑路强制安装插件+仓库链接`)
         return false
       }
@@ -61,10 +61,10 @@ export class example extends plugin {
       await this.reply(`少女祈祷中\n正在为你安装插件${Name}`)
 
       const clone = `git clone --depth=1 ${url} ./plugins/${Name}`
-      const gg = await YS.exec(clone)
+      const gg = await Bot.exec(clone)
 
-      if (await YS.fsStat(`plugins/${Name}/package.json`)) {
-        await YS.exec("pnpm install")
+      if (await Bot.fsStat(`plugins/${Name}/package.json`)) {
+        await Bot.exec("pnpm install")
       }
 
       if (gg.error) {
