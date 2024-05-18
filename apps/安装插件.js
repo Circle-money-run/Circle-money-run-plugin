@@ -1,6 +1,7 @@
 import { exec } from 'child_process'
 import { Restart } from "../../other/restart.js"
 import fs from 'fs'
+import fse from 'fs-extra'
 
 export class example extends plugin {
   constructor () {
@@ -11,11 +12,11 @@ export class example extends plugin {
       priority: -10,
       rule: [
         {
-          reg: "^#?跑路(代理)?安装插件.+$",
+          reg: "^#?跑路(强制)?(代理)?安装插件.+$",
           fnc: 'install'
         },
         {
-          reg: "^#?跑路(代理)?安装插件$",
+          reg: "^#?跑路(强制)?(代理)?安装插件$",
           fnc: 'add'
         }
       ]
@@ -47,9 +48,13 @@ export class example extends plugin {
     }
       let parts = url.split('/')
       let Name = parts[parts.length - 1]
+      
+      if (e.msg.includes('强制')) {
+        await fse.remove(`plugins/${Name}`);
+      }
 
       if (await Bot.fsStat(`plugins/${Name}`)) {
-        await this.reply(`少女为你痛哭\n你好像已经安装了${Name}`)
+        await this.reply(`少女为你痛哭\n你好像已经安装了${Name}\n如果需要重新安装该插件，请执行:\n#跑路强制安装插件+仓库链接`)
         return false
       }
 

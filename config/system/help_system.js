@@ -169,7 +169,7 @@ export const helpList = [
       },
       {
         "icon": 48,
-        "title": "#跑路安装插件+链接",
+        "title": "#跑路(强制)?(代理)?安装插件+链接",
         "desc": "快捷安装插件"
       },
       {
