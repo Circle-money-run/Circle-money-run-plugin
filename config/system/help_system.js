@@ -163,11 +163,6 @@ export const helpList = [
     "auth": "master",
     "list": [
       {
-        "icon": 79,
-        "title": "#裁定+@某人",
-        "desc": "看运气决定无罪还是死刑"
-      },
-      {
         "icon": 48,
         "title": "#跑路(强制)?(代理)?安装插件+链接",
         "desc": "快捷安装插件"
