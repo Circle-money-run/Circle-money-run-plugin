@@ -22,7 +22,7 @@ import fs from 'node:fs'
 import { Plugin_Path } from './components/index.js'
 
 if (!YS.exec) {
-  const { exec } from 'node:child_process'
+  import { exec } from 'node:child_process'
 
   YS.exec = (cmd, opts = {}) => {
     return new Promise((resolve) => {
