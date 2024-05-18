@@ -21,6 +21,37 @@ try {
 import fs from 'node:fs'
 import { Plugin_Path } from './components/index.js'
 
+if (!YS.exec) {
+  const { exec } from 'node:child_process'
+
+  YS.exec = (cmd, opts = {}) => {
+    return new Promise((resolve) => {
+      if (!opts.quiet) {
+        logger.mark(`[执行安装命令] ${logger.blue(cmd)}`);
+      }
+
+      exec(cmd, opts, (error, stdout, stderr) => {
+        resolve({ error, stdout, stderr });
+
+        if (opts.quiet) {
+        if (stdout) {
+          logger.mark(`${logger.blue(`${String(stdout).trim()}`)}`);
+        } else { 
+        logger.mark("")
+        }
+        if (stderr) {
+          logger.mark(`${logger.red(`${String(stderr).trim()}`)}`)
+        } else {
+        logger.mark("")
+        }
+        if (error) logger.error(`[安装错误] ${logger.blue(cmd)}\n${logger.red(`${String(error).trim()}`)}`)
+          }
+        }
+      });
+    });
+  }
+
+
 const files = fs.readdirSync(`${Plugin_Path}/apps`).filter(file => file.endsWith('.js'))
 
 let ret = []
