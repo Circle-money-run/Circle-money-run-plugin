@@ -28,23 +28,8 @@ export const helpList = [
     "list": [
       {
         "icon": 30,
-        "title": "#随机emo文案",
-        "desc": "#随机发送一条emo的文案"
-      },
-      {
-        "icon": 30,
-        "title": "#随机治愈文案",
-        "desc": "随机发送一条治愈系的文案"
-      },
-      {
-        "icon": 30,
         "title": "#随机瑜笙",
         "desc": "随机发送作者的聊天记录"
-      },
-      {
-        "icon": 30,
-        "title": "#随机小心心",
-        "desc": "随机发送小心心的逆天发言"
       },
       {
         "icon": 30,
@@ -60,31 +45,6 @@ export const helpList = [
         "icon": 30,
         "title": "#随机猫猫虫",
         "desc": "随机发送一个猫猫虫的表情"
-      },
-      {
-        "icon": 30,
-        "title": "#鸡音盒",
-        "desc": "小黑子，被我抓住了吧"
-      },
-      {
-        "icon": 30,
-        "title": "#遥遥领先",
-        "desc": "手机里有很严重的杂音"
-      },
-      {
-        "icon": 30,
-        "title": "#菜就多练",
-        "desc": "菜就多练，输不起就别玩"
-      },
-      {
-        "icon": 30,
-        "title": "114514",
-        "desc": "真的太臭了"
-      },
-      {
-        "icon": 30,
-        "title": "#模块传奇",
-        "desc": "云端不是最强的，模块才是王道"
       },
       {
         "icon": 30,
@@ -121,11 +81,6 @@ export const helpList = [
   {
     "group": "其他功能",
     "list": [
-      {
-        "icon": 30,
-        "title": "#跑路api状态",
-        "desc": "查看当前图片api状态"
-      },
       {
         "icon": 30,
         "title": "#跑路版本  #跑路更新日志",
