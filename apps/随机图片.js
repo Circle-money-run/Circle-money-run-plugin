@@ -7,7 +7,7 @@ export class example extends plugin {
       priority: -10,
       rule: [
         {
-          reg: "^#?随机(猫猫糕|寒暄|心海|小心心|瑜笙|狐狐|猫猫虫|柴郡|七濑|七濑胡桃|胡桃|宵宫)$",
+          reg: "^#?随机(猫猫糕|寒暄|心海|小心心|瑜笙|狐狐|猫猫虫|柴郡|七濑|七濑胡桃|胡桃|宵宫|小叶)$",
           fnc: 'random',
           log: false
         }
@@ -69,6 +69,11 @@ if (e.msg.includes('随机胡桃')) {
 if (e.msg.includes('随机宵宫')) {
   let buttontext = "宵宫"
   let path = "xiaogong"
+  return this.send(e,buttontext,path)}
+
+if (e.msg.includes('小叶')) {
+  let buttontext = "小叶"
+  let path = "xiaoye"
   return this.send(e,buttontext,path)}
   }
   

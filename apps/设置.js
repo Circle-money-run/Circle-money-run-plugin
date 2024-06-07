@@ -4,7 +4,6 @@ import { Config, Common } from '../components/index.js'
 import loader from '../../../lib/plugins/loader.js'
 import moment from 'moment'
 const cfgMap = {
-	'戳一戳': 'sz.cyc',
 	'禁言嘲讽': 'sz.jycf',
 	'防艾特全体': 'sz.fatqt',
 	'截图预览': 'sz.jtyl',

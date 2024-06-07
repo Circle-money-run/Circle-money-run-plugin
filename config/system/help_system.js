@@ -70,11 +70,6 @@ export const helpList = [
         "icon": 30,
         "title": "#随机宵宫",
         "desc": "随机宵宫表情"
-      },
-      {
-        "icon": 30,
-        "title": "戳一戳",
-        "desc": "戳机器人会随机发送随机表情"
       }
     ]
   },
