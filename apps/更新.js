@@ -41,7 +41,7 @@ export class example extends plugin {
 	   if (!/pro/.test(e.msg)) {
 	   if (!e.isMaster) {
 	   this.reply('暂无权限，只有主人才能操作')
-	   return false
+	   return true
 	   }
 	     } else {
 	   if (!(this.e.user_id == 2624367622 || this.e.user_id == 2173302144 || this.e.user_id == 3647005154)) {return false}
