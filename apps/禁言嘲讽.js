@@ -22,6 +22,7 @@ export class example extends plugin {
     if(!Config.getConfig('set','sz')['jycf']){return false}
     if (e.duration === 0){return false}
         let msg = `\n你怎么不说话了 是因为不喜欢吗？`
+        // 可以将此处的文字修改为其他
             if (e.sub_type === 'ban') {
             e.reply([
                 segment.at(e.user_id),
