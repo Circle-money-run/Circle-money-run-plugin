@@ -13,22 +13,26 @@ export class example extends plugin {
       rule: [
         {
           reg: "^#?跑路(强制)?(代理)?安装插件.+$",
-          fnc: 'install'
+          fnc: 'install',
+          log: false
         },
         {
           reg: "^#?跑路(强制)?(代理)?安装插件$",
-          fnc: 'add'
+          fnc: 'add',
+          log: false
         }
       ]
     })
   }
 
   async add (e) {
+  logger.info(`用户[${logger.green(`${this.e.user_id}`)}] 在群[${logger.red(`${this.e.group_id}`)}] 触发功能 > [${logger.blue('安装插件.js')}]`)
     this.reply('少女为你痛哭\n正确的格式应该是#跑路安装插件+仓库链接')
     return true
   }
 
   async install (e) {
+  logger.info(`用户[${logger.green(`${this.e.user_id}`)}] 在群[${logger.red(`${this.e.group_id}`)}] 触发功能 > [${logger.blue('安装插件.js')}]`)
     if (!e.isMaster) {
       return this.reply('暂无权限，只有主人才能操作')
     }
