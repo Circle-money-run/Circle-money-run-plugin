@@ -6,7 +6,7 @@ import fse from 'fs-extra'
 export class example extends plugin {
   constructor () {
     super({
-      name: '安装插件',
+      name: '跑路安装插件',
       dsc: '安装插件',
       event: 'message',
       priority: -10,
