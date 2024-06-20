@@ -7,7 +7,6 @@ const cfgMap = {
 	'禁言嘲讽': 'sz.jycf',
 	'防艾特全体': 'sz.fatqt',
 	'截图预览': 'sz.jtyl',
-	'群管': 'sz.qg',
 	'过码': 'sz.gt',
 	'戳一戳响应': 'sz.cycxy',
 };
