@@ -24,6 +24,11 @@ git clone --depth=1 https://mirror.ghproxy.com/https://github.com/Circle-money-r
 ``` bash
 git clone --depth=1 https://github.com/Circle-money-run/Circle-money-run-plugin ./plugins/Circle-money-run-plugin
 ```
+## 备用代理安装(国内推荐)(更新较快)
+```bash
+git clone --depth=1 https://proxy.escateam.icu/https://github.com/Circle-money-run/Circle-money-run-plugin ./plugins/Circle-money-run-plugin
+```
+
 ## 安装依赖
 ``` bash
 pnpm install --filter=Circle-money-run-plugin
